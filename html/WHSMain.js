@@ -178,11 +178,9 @@ requirejs(['../src/WorldWind',
         var sitePopUp = function(sitelabel) {
             // Locate JSON file
             var tokens = sitelabel.split(",");
-            var continentCode = tokens[0];
-            var countryCode = tokens[1];
+            //var continentCode = tokens[0];
+            //var countryCode = tokens[1];
             var siteid = tokens[2];
-            //var popupjsonpath = '../json/' + continentCode + '/' + countryCode + '.json';
-            //var popupjsonpath = '../json/AllSites0601.json';
             var popupjsonpath = '//whs.aworldbridgelabs.com:9083/popup';
             var sitename, picpath, sitedesc, siteurl;
 

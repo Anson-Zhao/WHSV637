@@ -32,7 +32,7 @@ app.get('/index.htm', function (req, res) {
 app.get('/search', function (req, res) {
     names = req.query.keywords;
     //console.log(names);
-    connection.query('select * from Country Where CountryName = ?', [names], function(err, results, fields) {
+    connection.query('select * from Country Where ContinentCode <> "" AND CountryName = ?', [names], function(err, results, fields) {
         if(err) throw err;
 
         // Prepare output in JSON format
@@ -125,7 +125,7 @@ app.get('/searchSite', function (req, res) {
 app.get('/autoSuggestion', function (req, res) {
 
     var sql1 = 'Select ContinentName AS value from Continent; ';
-    var sql2 = 'Select CountryName AS value from Country; ';
+    var sql2 = 'Select CountryName AS value from Country Where ContinentCode <> ""; ';
     var sql3 = 'Select SiteName AS value from Sites; ';
 
     connection.query(sql1+sql2+sql3, function(err, results, fields) {
