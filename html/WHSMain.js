@@ -81,7 +81,7 @@ requirejs(['../src/WorldWind',
         var n = 0;
 
         $.ajax({
-                url: '//whs.aworldbridgelabs.com:9083/searchCountry',
+                url: '//aworldbridgelabs.com:9083/searchCountry',
                 dataType: 'json',
                 async: false,
                 success: function (countrylayers) {
@@ -105,11 +105,11 @@ requirejs(['../src/WorldWind',
         // Load local sites' json file by country to create multiple placemark per country.
 
         $.ajax({
-            url: '//whs.aworldbridgelabs.com:9083/searchSite',
+            url: '//aworldbridgelabs.com:9083/searchSite',
             dataType: 'json',
             async: false,
             success: function (SitesPL) {
-
+                //alert("a" + SitesPL.length);
                 // Create the placemarks for one country.
                 for (var i = 0; i < SitesPL.length; i++) {
 
@@ -181,7 +181,7 @@ requirejs(['../src/WorldWind',
             //var continentCode = tokens[0];
             //var countryCode = tokens[1];
             var siteid = tokens[2];
-            var popupjsonpath = '//whs.aworldbridgelabs.com:9083/popup';
+            var popupjsonpath = '//aworldbridgelabs.com:9083/popup';
             var sitename, picpath, sitedesc, siteurl;
 
             $.getJSON(popupjsonpath,function (res) {

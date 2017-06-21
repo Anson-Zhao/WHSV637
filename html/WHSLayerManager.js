@@ -107,7 +107,7 @@ define(function () {
     LayerManager.prototype.autosuggestion = function () {
         var autoSe = this;
         $.ajax({
-            url: '//whs.aworldbridgelabs.com:9083/autoSuggestion',
+            url: '//aworldbridgelabs.com:9083/autoSuggestion',
             dataType: 'json',
             async: false,
             success: function (qResults) {
@@ -348,15 +348,15 @@ define(function () {
                 returncountry = ajaxReturn[0].CountryName;
                 returnsitelat = ajaxReturn[0].LatiDecimal;
                 returnsitelon = ajaxReturn[0].LongDecimal;
-
+                
                 if (typeof ajaxReturn[0].SiteID === "string") {
                     returnsiteID = ajaxReturn[0].SiteID;
-                    if (typeof ajaxReturn[0].CorrectLatiDecimal === "string") {
+                    if (ajaxReturn[0].CorrectLatiDecimal) {
                         returnsitelat = ajaxReturn[0].CorrectLatiDecimal;
                         returnsitelon = ajaxReturn[0].CorrectLongDecimal;
                     }
                 }
-                //alert("Return Conti: " + returncontinent + "\nReturn Country: " + returncountry);
+                //alert("Return SiteID: " + returnsiteID + "\nReturn Conti: " + returncontinent + "\nReturn Country: " + returncountry + "\nReturn Lat: " + returnsitelat + "\nReturn Lon: " + returnsitelon);
 
                 thisLM.layerMenu(returncontinent, returncountry);
                 thisLM.globe2Search(querywords);
@@ -369,7 +369,7 @@ define(function () {
         var querystr = "?keywords=" + querywords;
         //alert(querystr);
 
-        ajaxRequest.open("GET", "//whs.aworldbridgelabs.com:9083/search" + querystr, true);
+        ajaxRequest.open("GET", "//aworldbridgelabs.com:9083/search" + querystr, true);
         ajaxRequest.send(querystr);
 
     };
