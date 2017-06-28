@@ -89,11 +89,11 @@ input:checked + .contislider:before {
 }
 
 .popupBoxWrapper{
-    width: 550px; margin: 50px auto; text-align: left; overflow-y: scroll; z-index: 1;
+    width: 550px; margin: 50px auto; text-align: left; overflow: scroll; z-index: 1;
 }
 
 .popupBoxContent{
-    background-color: #FFF; padding: 15px;
+    background-color: #FFF; padding: 15px; overflow: scroll;
 }
 
 

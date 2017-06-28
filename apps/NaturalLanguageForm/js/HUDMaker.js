@@ -125,12 +125,12 @@ define(['jquery'],function($){
         this.DIV.css('background-color','white');
         this.closeButtonAndTitleDiv = $('<h3>');
         this.closeButtonAndTitleDiv.append(this.NAME);
-        this.closeButton = $('<siteimages>');
-        this.closeButton.attr('src','siteimages/load.png');
+        this.closeButton = $('<siteimages0>');
+        this.closeButton.attr('src','siteimages0/load.png');
         this.closeButton.attr('width','20');
         this.closeButton.attr('height','20');
         this.closeButton.attr('alt','Pin');
-        this.closeButton.attr('longdesc','siteimages/load.png');
+        this.closeButton.attr('longdesc','siteimages0/load.png');
         this.closeButton.on('click', function (o){
             self.DIV.remove();
             self.StyleSheet.remove();

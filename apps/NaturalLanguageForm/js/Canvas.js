@@ -24,7 +24,7 @@ define(['jquery',
             var jQueryDoc = $(window.document);
             var menubutton = new OverlayButton(
                 'windIconMenu',
-                'siteimages/windGear.svg',
+                'siteimages0/windGear.svg',
                 [70, jQueryDoc.height()-40-42],
                 [64,42],
                 '.content'
@@ -44,7 +44,7 @@ define(['jquery',
                 var buttonX = jQueryDoc.width() * .02;
                 var returnButton = new OverlayButton(
                     'returnToCanvas',
-                    'siteimages/globeSearch.png',
+                    'siteimages0/globeSearch.png',
                     [buttonX, buttonY],
                     [75,75]
                 );

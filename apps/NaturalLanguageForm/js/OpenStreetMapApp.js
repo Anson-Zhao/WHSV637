@@ -406,7 +406,7 @@ define(['http://worldwindserver.net/webworldwind/worldwind.min.js',
         * @param renderableLayer: A worldwind layer to populate.
         */
         OpenStreetMapApp.prototype.buildPlacemarkLayer = function (renderableLayer, arrayofamenities) {
-            var pinImgLocation = '../NaturalLanguageForm/siteimages/pinclosed.gif' , // location of the image files
+            var pinImgLocation = '../NaturalLanguageForm/siteimages0/pinclosed.gif' , // location of the image files
                 placemark,
                 placemarkAttributes = new WorldWind.PlacemarkAttributes(null),
                 highlightAttributes,
