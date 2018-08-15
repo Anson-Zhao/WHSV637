@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c8304d3d-8ba9-428d-acc5-7a00b46e70b1" name="637" url="http://localhost:63342/WHSV637">
+        <fileTransfer host="aworldbridgelabs.com" port="5532" rootFolder="/var/www/whs" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="5532" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -107,7 +107,7 @@ define(function () {
     LayerManager.prototype.autosuggestion = function () {
         var autoSe = this;
         $.ajax({
-            url: '//aworldbridgelabs.com:9083/autoSuggestion',
+            url: '//aworldbridgelabs.com:9090/autoSuggestion',
             dataType: 'json',
             async: false,
             success: function (qResults) {
@@ -369,7 +369,7 @@ define(function () {
         var querystr = "?keywords=" + querywords;
         //alert(querystr);
 
-        ajaxRequest.open("GET", "//aworldbridgelabs.com:9083/search" + querystr, true);
+        ajaxRequest.open("GET", "//aworldbridgelabs.com:9090/search" + querystr, true);
         ajaxRequest.send(querystr);
 
     };
