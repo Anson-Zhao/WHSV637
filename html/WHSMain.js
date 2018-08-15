@@ -18,6 +18,7 @@ requirejs(['../src/WorldWind',
         // Tell World Wind to log only warnings.
         WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
 
+//         Say test
         // Create the World Window.
         var wwd = new WorldWind.WorldWindow("canvasOne");
 
