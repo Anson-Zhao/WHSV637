@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="northernhorizon.org" id="e40af555-cf0b-4c63-91e2-39de822623ff" port="5532" nameFormat="DESCRIPTIVE" username="davidl" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

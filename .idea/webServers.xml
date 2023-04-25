@@ -2,12 +2,11 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c8304d3d-8ba9-428d-acc5-7a00b46e70b1" name="637" url="http://localhost:63342/WHSV637">
-        <fileTransfer host="aworldbridgelabs.com" port="5532" rootFolder="/var/www/whs" accessType="SFTP">
+      <webServer id="591388c0-91d1-4c77-8c87-8bf86f122c61" name="Live" url="https://whs.northernhorizon.org">
+        <fileTransfer rootFolder="/var/www/whs" accessType="SFTP" host="northernhorizon.org" port="5532" sshConfigId="e40af555-cf0b-4c63-91e2-39de822623ff" sshConfig="davidl@northernhorizon.org:5532 password">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="5532" />
         </fileTransfer>
       </webServer>
     </option>

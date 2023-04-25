@@ -82,14 +82,22 @@ input:checked + .contislider:before {
     clear: both;
 }
 
-/* popupBox (background) */
-.popup-group{
-    top: 0; left: 0; position: fixed; width: 100%; height: 120%;
-    background-color: rgba(220, 220, 220, 0.51); display: none; max-height: calc(1000vh - 210px); overflow: scroll
+.col-sm-9{
+    position: relative;
 }
 
-.popupBoxWrapper{
+/* popupBox (background) */
+.popup-group{
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(220, 220, 220, 0.51); display: none
+}
+
+/*.popupBoxWrapper{
     width: 550px; margin: 50px auto; text-align: left; overflow: scroll; z-index: 1;
+}*/
+
+.popupBoxWrapper{
+    max-width: calc(60%); width: 100%; margin: 10% auto; text-align: left; max-height: calc(80%); overflow: auto; z-index: 1
 }
 
 .popupBoxContent{
@@ -117,7 +125,7 @@ input:checked + .contislider:before {
 
 /* The Close Button */
 .close {
-    color: #6bb8ae;
+    color: red;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -248,7 +256,7 @@ input:checked + .contislider:before {
     border: none;
     padding: 5px;
     font: 24px/36px sans-serif;
-    width: 275px;
+    width: 100%;
     height: 470px;
     overflow: auto;
 }

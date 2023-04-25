@@ -18,7 +18,6 @@ requirejs(['../src/WorldWind',
         // Tell World Wind to log only warnings.
         WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
 
-//         Say test
         // Create the World Window.
         var wwd = new WorldWind.WorldWindow("canvasOne");
 
@@ -113,62 +112,63 @@ requirejs(['../src/WorldWind',
                 //alert("a" + SitesPL.length);
                 // Create the placemarks for one country.
                 for (var i = 0; i < SitesPL.length; i++) {
+                    if (!!SitesPL[i].LatiDecimal) {
+                        placemark = new WorldWind.Placemark(new WorldWind.Position(SitesPL[i].LatiDecimal, SitesPL[i].LongDecimal, 1e2), false, null);
+                        placemark.label = SitesPL[i].ContinentCode + "," + SitesPL[i].CountryCode + "," + SitesPL[i].SiteID;
+                        placemark.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
 
-                    placemark = new WorldWind.Placemark(new WorldWind.Position(SitesPL[i].LatiDecimal, SitesPL[i].LongDecimal, 1e2), false, null);
-                    placemark.label = SitesPL[i].ContinentCode + "," + SitesPL[i].CountryCode + "," + SitesPL[i].SiteID;
-                    placemark.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
+                        // Create the placemark attributes for the placemark.
+                        placemarkAttributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
 
-                    // Create the placemark attributes for the placemark.
-                    placemarkAttributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
+                        // Wrap the canvas created above in an ImageSource object to specify it as the placemark image source.
+                        placemarkAttributes.imageSource = new WorldWind.ImageSource(canvas);
+                        placemark.attributes = placemarkAttributes;
 
-                    // Wrap the canvas created above in an ImageSource object to specify it as the placemark image source.
-                    placemarkAttributes.imageSource = new WorldWind.ImageSource(canvas);
-                    placemark.attributes = placemarkAttributes;
+                        // Create the highlight attributes for this placemark. Note that the normal attributes are specified as
+                        // the default highlight attributes so that all properties are identical except the image scale. You could
+                        // instead vary the color, image, or other property to control the highlight representation.
+                        highlightAttributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
+                        highlightAttributes.imageScale = 0.5;
+                        placemark.highlightAttributes = highlightAttributes;
 
-                    // Create the highlight attributes for this placemark. Note that the normal attributes are specified as
-                    // the default highlight attributes so that all properties are identical except the image scale. You could
-                    // instead vary the color, image, or other property to control the highlight representation.
-                    highlightAttributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
-                    highlightAttributes.imageScale = 0.5;
-                    placemark.highlightAttributes = highlightAttributes;
+                        // Create customized placemark layers per country.
+                        countrylayernamePL = SitesPL[i].ContinentCode + "." + SitesPL[i].CountryName;
 
-                    // Create customized placemark layers per country.
-                    countrylayernamePL = SitesPL[i].ContinentCode + "." + SitesPL[i].CountryName;
+                        var AddPL = function (layerN, callback) {
+                            var wlayers = wwd.layers;
 
-                    var AddPL = function (layerN, callback) {
-                        var wlayers = wwd.layers;
+                            for (var m = 0; m < wlayers.length; m++) {
+                                if (wlayers[m].displayName === layerN) {
 
-                        for (var m = 0; m < wlayers.length; m++) {
-                            if (wlayers[m].displayName === layerN) {
-
-                                // Add the placemark to the country layer.
-                                wlayers[m].addRenderable(placemark);
-                                n = 1;
-                                break
+                                    // Add the placemark to the country layer.
+                                    wlayers[m].addRenderable(placemark);
+                                    n = 1;
+                                    break
+                                }
                             }
-                        }
 
-                        if (typeof callback === "function") {
+                            if (typeof callback === "function") {
 
-                            callback(layerN);
+                                callback(layerN);
 
-                        }
-                    };
+                            }
+                        };
 
-                    var placemarkNew = function (LayerN) {
-                        if (n === 0) {
-                            countryLayer = new WorldWind.RenderableLayer(LayerN);
-                            countryLayer.enabled = false;
-                            countryLayer.addRenderable(placemark);
+                        var placemarkNew = function (LayerN) {
+                            if (n === 0) {
+                                countryLayer = new WorldWind.RenderableLayer(LayerN);
+                                countryLayer.enabled = false;
+                                countryLayer.addRenderable(placemark);
 
-                            // Add the country layer to the World Window's layer list.
-                            wwd.addLayer(countryLayer);
-                        } else {
-                            n = 0;
-                        }
-                    };
+                                // Add the country layer to the World Window's layer list.
+                                wwd.addLayer(countryLayer);
+                            } else {
+                                n = 0;
+                            }
+                        };
 
-                    AddPL(countrylayernamePL, placemarkNew);
+                        AddPL(countrylayernamePL, placemarkNew);
+                    }
 
                 }
             }
